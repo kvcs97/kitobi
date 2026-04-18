@@ -2,53 +2,15 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+@import "@fontsource-variable/outfit";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@/styles/tokens.css";
 
 @custom-variant dark (&:is(.dark *));
 
-/* Kitobi Design Tokens — see kitobi-ui-design.md */
+/* shadcn semantic tokens — light theme defaults (unused, dark is always active) */
 :root {
-  /* Colors */
-  --color-primary: #C084FC;
-  --color-primary-dark: #A855F7;
-  --color-secondary: #67E8F9;
-
-  --color-bg: #0F0F13;
-  --color-surface: #1A1A24;
-  --color-surface-raised: #22222F;
-  --color-border: #2E2E40;
-
-  --color-text: #F0EEF8;
-  --color-text-muted: #7B7A96;
-
-  --color-success: #4ADE80;
-  --color-warning: #FACC15;
-  --color-danger: #F87171;
-
-  /* Typography */
-  --font-heading: 'Outfit', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-
-  /* Spacing base: 4px */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-full: 9999px;
-
-  /* Shadows (subtle for dark mode) */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -83,30 +45,10 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-/* Base reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: 'Geist Variable', sans-serif;
+  --font-heading: 'Outfit Variable', system-ui, sans-serif;
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -147,48 +89,158 @@ body {
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Kitobi dark theme — always active via class="dark" on <html> */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #0F0F13;
+  --foreground: #F0EEF8;
+  --card: #1A1A24;
+  --card-foreground: #F0EEF8;
+  --popover: #1A1A24;
+  --popover-foreground: #F0EEF8;
+  --primary: #C084FC;
+  --primary-foreground: #0F0F13;
+  --secondary: #22222F;
+  --secondary-foreground: #F0EEF8;
+  --muted: #22222F;
+  --muted-foreground: #7B7A96;
+  --accent: #67E8F9;
+  --accent-foreground: #0F0F13;
+  --destructive: #F87171;
+  --border: #2E2E40;
+  --input: #2E2E40;
+  --ring: #C084FC;
+  --chart-1: #C084FC;
+  --chart-2: #67E8F9;
+  --chart-3: #4ADE80;
+  --chart-4: #FACC15;
+  --chart-5: #F87171;
+  --sidebar: #1A1A24;
+  --sidebar-foreground: #F0EEF8;
+  --sidebar-primary: #C084FC;
+  --sidebar-primary-foreground: #0F0F13;
+  --sidebar-accent: #22222F;
+  --sidebar-accent-foreground: #F0EEF8;
+  --sidebar-border: #2E2E40;
+  --sidebar-ring: #C084FC;
 }
+
+/* Sidebar / BottomNav navigation styles */
+.nav-item {
+  color: var(--color-text-muted);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+.nav-item:hover {
+  background-color: var(--color-surface-raised);
+  color: var(--color-text);
+}
+.nav-active {
+  background-color: rgba(192, 132, 252, 0.12);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* Flashcard 3D flip animation */
+.card-3d { perspective: 1200px; }
+.card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 480ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
+}
+.card-inner.flipped { transform: rotateY(180deg); }
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card-face-back { transform: rotateY(180deg); }
+
+/* 5.6 – Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .card-inner {
+    transition: none;
+  }
+}
+
+/* TipTap editor prose styles */
+.tiptap-wrapper .ProseMirror {
+  min-height: 400px;
+  padding: 1rem 1.25rem;
+  outline: none;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+.tiptap-wrapper .ProseMirror > * + * { margin-top: 0.5em; }
+.tiptap-wrapper .ProseMirror p.is-editor-empty:first-child::before {
+  content: 'Schreibe etwas…';
+  color: var(--color-text-muted);
+  pointer-events: none;
+  float: left;
+  height: 0;
+}
+.tiptap-wrapper .ProseMirror h2 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: 1.5em;
+  margin-bottom: 0.25em;
+}
+.tiptap-wrapper .ProseMirror h3 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 1.25em;
+  margin-bottom: 0.25em;
+}
+.tiptap-wrapper .ProseMirror ul { list-style-type: disc; padding-left: 1.5em; }
+.tiptap-wrapper .ProseMirror ol { list-style-type: decimal; padding-left: 1.5em; }
+.tiptap-wrapper .ProseMirror blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding: 0.25em 1em;
+  color: var(--color-text-muted);
+}
+.tiptap-wrapper .ProseMirror code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--color-surface-raised);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  color: var(--color-secondary);
+}
+.tiptap-wrapper .ProseMirror pre {
+  background: var(--color-surface-raised);
+  border-radius: 8px;
+  padding: 1em 1.25em;
+  overflow-x: auto;
+}
+.tiptap-wrapper .ProseMirror pre code {
+  background: none;
+  padding: 0;
+  color: var(--color-text);
+  font-size: 0.875em;
+}
+.tiptap-wrapper .ProseMirror s { color: var(--color-text-muted); }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply font-sans;
+  }
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    @apply font-sans;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  code, pre, kbd {
+    font-family: var(--font-mono);
   }
 }

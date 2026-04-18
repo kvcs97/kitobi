@@ -1,0 +1,94 @@
+/* ============================================================
+   Kitobi Design Tokens
+   Source of truth: kitobi-ui-design.md
+   Usage: var(--color-primary), var(--space-md), etc.
+   Never use hardcoded colors — always reference these tokens.
+   ============================================================ */
+
+:root {
+  /* ----------------------------------------------------------
+     Colors
+     ---------------------------------------------------------- */
+
+  /* Brand */
+  --color-primary:      #C084FC; /* Violet — CTAs, active nav, links */
+  --color-primary-dark: #A855F7; /* Hover state for primary */
+  --color-secondary:    #67E8F9; /* Cyan — accents, tags, highlights */
+
+  /* Backgrounds */
+  --color-bg:             #0F0F13; /* Page background */
+  --color-surface:        #1A1A24; /* Cards, panels, inputs */
+  --color-surface-raised: #22222F; /* Hover states, nested cards */
+
+  /* Borders */
+  --color-border: #2E2E40; /* Dividers, input borders */
+
+  /* Text */
+  --color-text:       #F0EEF8; /* Primary text */
+  --color-text-muted: #7B7A96; /* Labels, placeholders, metadata */
+
+  /* Semantic */
+  --color-success: #4ADE80; /* Correct answer, active streak */
+  --color-warning: #FACC15; /* Cards due soon, notices */
+  --color-danger:  #F87171; /* Wrong answer, errors, delete */
+
+  /* Subject accent palette (8 options for user-defined subject colors) */
+  --color-subject-1: #C084FC; /* violet */
+  --color-subject-2: #67E8F9; /* cyan */
+  --color-subject-3: #86EFAC; /* green */
+  --color-subject-4: #FCA5A5; /* rose */
+  --color-subject-5: #FCD34D; /* amber */
+  --color-subject-6: #93C5FD; /* blue */
+  --color-subject-7: #F9A8D4; /* pink */
+  --color-subject-8: #A5B4FC; /* indigo */
+
+  /* ----------------------------------------------------------
+     Typography
+     ---------------------------------------------------------- */
+  --font-heading: 'Outfit Variable', system-ui, sans-serif;
+  --font-body:    'Inter Variable', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono Variable', ui-monospace, monospace;
+
+  /* ----------------------------------------------------------
+     Spacing  (base unit: 4px)
+     ---------------------------------------------------------- */
+  --space-xs:  0.25rem; /*  4px */
+  --space-sm:  0.5rem;  /*  8px */
+  --space-md:  1rem;    /* 16px */
+  --space-lg:  1.5rem;  /* 24px */
+  --space-xl:  2rem;    /* 32px */
+  --space-2xl: 3rem;    /* 48px */
+  --space-3xl: 4rem;    /* 64px */
+
+  /* ----------------------------------------------------------
+     Border Radius
+     ---------------------------------------------------------- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;  /* Flashcard viewer */
+  --radius-full: 9999px; /* Pill badges, avatars */
+
+  /* ----------------------------------------------------------
+     Shadows  (subtle — dark mode context)
+     ---------------------------------------------------------- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  /* ----------------------------------------------------------
+     Transitions
+     ---------------------------------------------------------- */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* ----------------------------------------------------------
+     Z-Index scale
+     ---------------------------------------------------------- */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-overlay: 100;
+  --z-modal:   200;
+  --z-toast:   300;
+}
