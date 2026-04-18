@@ -16,7 +16,7 @@
 | KI | Anthropic Claude API (claude-sonnet-4) | Karten- & Quiz-Generierung aus Notizen; Erklärungen bei Fehlern |
 | State | Zustand + TanStack Query | Zustand für UI-State, TanStack Query für Server-State / Caching |
 | Spaced Repetition | FSRS (ts-fsrs) | Modernster SR-Algorithmus (Anki-Standard); npm-Paket verfügbar |
-| Hosting | GitHub Pages / Cloudflare Pages | Unter Shoriu-Domain: `kitobi.shoriu.app` |
+| Hosting | GitHub Pages / Cloudflare Pages | Unter Shoriu-Domain: `kitobi.shoriu.com` |
 | Markdown | TipTap Editor | Rich-Text mit Markdown-Unterstützung; erweiterbar (Code, LaTeX) |
 
 ---
@@ -221,7 +221,7 @@ notes       1 ──── N  flashcard_decks  (optional, bei KI-Generierung)
 | `anon` | Nicht eingeloggt | Kein Datenzugriff; nur Login-Seite |
 
 **Auth-Flow:**
-1. User öffnet `kitobi.shoriu.app` → React Router prüft Session
+1. User öffnet `kitobi.shoriu.com` → React Router prüft Session
 2. Keine Session → Redirect zu `/login`
 3. Login via Supabase Auth (Email/Password oder OAuth)
 4. Supabase gibt JWT zurück → in `localStorage` gespeichert

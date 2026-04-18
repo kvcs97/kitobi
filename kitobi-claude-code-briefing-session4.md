@@ -35,7 +35,7 @@ Fortschritts-Dashboard, KI-Onboarding Wizard.
 - **Spaced Repetition:** ts-fsrs
 - **Editor:** TipTap
 - **KI:** Anthropic Claude API (`claude-sonnet-4-20250514`) → `src/lib/claude.ts`
-- **Hosting:** GitHub Pages unter `kitobi.shoriu.app`
+- **Hosting:** GitHub Pages unter `kitobi.shoriu.com`
 
 ---
 
@@ -75,7 +75,7 @@ Danach direkt weiter mit **Phase 5 – UI Polish** (7 Tasks) und **Phase 6 – D
 **Block C – Phase 6: Deployment (5 Tasks)**
 - `6.1` GitHub Actions Workflow: `npm run build` → nach `gh-pages` Branch deployen
 - `6.2` GitHub Actions Secrets: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_ANTHROPIC_API_KEY`
-- `6.3` Custom Domain `kitobi.shoriu.app` in GitHub Pages + CNAME-Datei im Repo
+- `6.3` Custom Domain `kitobi.shoriu.com` in GitHub Pages + CNAME-Datei im Repo
 - `6.4` Supabase RLS finaler Check: alle Policies testen (SELECT/INSERT/UPDATE/DELETE)
 - `6.5` Erster Deploy + Smoke-Test: Login, Onboarding, Karte lernen, Quiz durchführen
 
@@ -128,7 +128,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          cname: kitobi.shoriu.app
+          cname: kitobi.shoriu.com
 ```
 
 **Wichtig für Vite + React Router:** `vite.config.ts` braucht `base: '/'` und eine `404.html` die auf `index.html` redirected (SPA-Routing auf GitHub Pages).

@@ -157,9 +157,9 @@ Status-Legende: ✅ Fertig · 🔄 In Arbeit · ⏳ Offen · ❌ Blockiert · �
 |---|---|---|---|
 | 6.1 | GitHub Actions Build-Pipeline + GitHub Pages einrichten | ✅ | `.github/workflows/deploy.yml`; peaceiris/actions-gh-pages@v4; npm ci + build |
 | 6.2 | Env-Variablen als GitHub Actions Secrets eintragen | ⏳ | Manuell in GitHub: Settings → Secrets → VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, VITE_ANTHROPIC_API_KEY |
-| 6.3 | Subdomain `kitobi.shoriu.app` via CNAME auf GitHub Pages konfigurieren | ✅ | `public/CNAME` angelegt; 404.html SPA-Routing; index.html Redirect-Restore; vite.config.ts `base: '/'` |
+| 6.3 | Subdomain `kitobi.shoriu.com` via CNAME auf GitHub Pages konfigurieren | ✅ | `public/CNAME` angelegt; 404.html SPA-Routing; index.html Redirect-Restore; vite.config.ts `base: '/'` |
 | 6.4 | Produktions-Supabase RLS finaler Check | ✅ | Alle 7 Tabellen: RLS aktiv, for all + auth.uid(); Flashcards + quiz_questions via Join-Ownership; no gaps found |
-| 6.5 | Erster echter Deploy + Smoke-Test | ⏳ | Nach Secrets-Setup: git push → Actions-Pipeline → kitobi.shoriu.app |
+| 6.5 | Erster echter Deploy + Smoke-Test | ⏳ | Nach Secrets-Setup: git push → Actions-Pipeline → kitobi.shoriu.com |
 
 **Phase-Fortschritt:** 3 / 5 (60%)
 
@@ -186,7 +186,7 @@ Status-Legende: ✅ Fertig · 🔄 In Arbeit · ⏳ Offen · ❌ Blockiert · �
 |---|---|---|---|
 | 14.04.2026 | App-Name | **Kitobi** (Kurzform von *Kioku no Tobira*) | Frei als Markenname; passt zur Shoriu-Ästhetik |
 | 14.04.2026 | Spaced Repetition | **FSRS** via `ts-fsrs` | Modernster Algorithmus; npm-Paket verfügbar; gleiche Logik wie neues Anki |
-| 14.04.2026 | Hosting | **GitHub Pages** unter `kitobi.shoriu.app` | Alle Shoriu-Produkte bereits auf GitHub; alles beisammen |
+| 14.04.2026 | Hosting | **GitHub Pages** unter `kitobi.shoriu.com` | Alle Shoriu-Produkte bereits auf GitHub; alles beisammen |
 | 16.04.2026 | Obsidian-Integration | **Phase 7 (Bonus)** nach fertigem MVP | Sinnvoll als Plugin, aber erst wenn Core-Produkt steht |
 | 16.04.2026 | Onboarding | **Phase 1.5** nach Auth, vor Datenbank | KI-gestützter Wizard für Fächer, Ziele, Termine beim ersten Login |
 | 14.04.2026 | Claude API | Direkt im Frontend für MVP | Key in `.env`; für Produktion via Supabase Edge Function proxyen |

@@ -83,7 +83,7 @@ Studierende jonglieren heute mit mehreren Tools gleichzeitig: Anki für Karten, 
 | KI-Integration | Anthropic Claude API (claude-sonnet-4) |
 | Nutzeranzahl | Zunächst 1 (du); später multi-user via Auth |
 | Offline | Nice-to-have via PWA / localStorage-Cache |
-| Hosting | Unter Shoriu-Domain (z.B. kitobi.shoriu.app) |
+| Hosting | Unter Shoriu-Domain (z.B. kitobi.shoriu.com) |
 | Wartung | Selbst (du als Entwickler) |
 
 > **Stack-Begründung:** React + Supabase ist dein aktueller Stack für den Lernende-Tracker bei medmix – du kennst die Patterns bereits. Supabase liefert Auth, Datenbank und Row-Level Security out of the box, ideal wenn du später Multi-User aufschaltest.
