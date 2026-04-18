@@ -11,6 +11,11 @@ interface StepSubjectsProps {
   onBack: () => void
 }
 
+const FALLBACK_SUBJECTS = [
+  'Mathematik', 'Deutsch', 'Englisch', 'Geschichte',
+  'Informatik', 'Physik', 'Chemie', 'Biologie',
+]
+
 export default function StepSubjects({ studyProgram, subjects, onChange, onNext, onBack }: StepSubjectsProps) {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [loadingSuggestions, setLoadingSuggestions] = useState(false)
@@ -21,9 +26,9 @@ export default function StepSubjects({ studyProgram, subjects, onChange, onNext,
     setLoadingSuggestions(true)
     try {
       const result = await suggestSubjectsForProgram(studyProgram)
-      setSuggestions(result)
+      setSuggestions(result.length > 0 ? result : FALLBACK_SUBJECTS)
     } catch {
-      // silently fail — user can still add subjects manually
+      setSuggestions(FALLBACK_SUBJECTS)
     } finally {
       setLoadingSuggestions(false)
     }

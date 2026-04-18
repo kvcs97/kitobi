@@ -14,7 +14,7 @@ const TOTAL_STEPS = 5
 
 export default function Onboarding() {
   const navigate = useNavigate()
-  const { user, setOnboardingCompleted } = useAuthStore()
+  const { user } = useAuthStore()
 
   const [step, setStep] = useState(0)
   const [saving, setSaving] = useState(false)
@@ -43,18 +43,21 @@ export default function Onboarding() {
     if (!user) return
     setSaving(true)
     try {
-      await supabase
+      const { error } = await supabase
         .from('user_profiles')
-        .update({
+        .upsert({
+          id: user.id,
           name: name.trim(),
           study_program: studyProgram.trim(),
           semester: semester ? parseInt(semester) : null,
           daily_goal_min: dailyGoalMin,
           onboarding_completed: true,
-        })
-        .eq('id', user.id)
+        }, { onConflict: 'id' })
 
-      setOnboardingCompleted(true)
+      if (error) throw error
+
+      // Refresh store so ProtectedRoute sees onboarding_completed = true
+      await useAuthStore.getState().fetchProfile(user.id)
       navigate('/', { replace: true })
     } catch (err) {
       console.error('Failed to save profile:', err)
@@ -63,16 +66,15 @@ export default function Onboarding() {
     }
   }
 
-  function handleSkip() {
+  async function handleSkip() {
     if (!user) return
-    supabase
+    const { error } = await supabase
       .from('user_profiles')
-      .update({ onboarding_completed: true })
-      .eq('id', user.id)
-      .then(() => {
-        setOnboardingCompleted(true)
-        navigate('/', { replace: true })
-      })
+      .upsert({ id: user.id, onboarding_completed: true }, { onConflict: 'id' })
+    if (!error) {
+      await useAuthStore.getState().fetchProfile(user.id)
+      navigate('/', { replace: true })
+    }
   }
 
   return (
