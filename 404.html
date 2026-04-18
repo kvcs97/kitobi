@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="de" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kitobi</title>
+    <script>
+      // SPA routing on GitHub Pages: encode the path into a query param,
+      // redirect to root, then restore via history.replaceState in index.html.
+      // segmentCount=0 because the app lives at the domain root.
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        '/?/' +
+        l.pathname.slice(1).replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
