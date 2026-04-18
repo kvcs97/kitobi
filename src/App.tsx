@@ -3,6 +3,8 @@ import ProtectedRoute from '@/components/auth/ProtectedRoute'
 import AppLayout from '@/components/layout/AppLayout'
 import Dashboard from '@/pages/Dashboard'
 import Login from '@/pages/Login'
+import Register from '@/pages/Register'
+import VerifyEmail from '@/pages/VerifyEmail'
 import Onboarding from '@/pages/Onboarding'
 import Notes from '@/pages/Notes'
 import NoteEditor from '@/pages/NoteEditor'
@@ -28,6 +30,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<Dashboard />} />
