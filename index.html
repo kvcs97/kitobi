@@ -1,25 +1,17 @@
 <!doctype html>
-<html lang="de" class="dark">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kitobi</title>
-    <script>
-      // Restore URL after GitHub Pages 404-redirect (see public/404.html)
-      (function (l) {
-        if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function (s) {
-            return s.replace(/~and~/g, '&');
-          }).join('?');
-          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
-        }
-      }(window.location));
-    </script>
-    <script type="module" crossorigin src="/assets/index-DHM5gyG7.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BY6JrtYW.css">
-  </head>
+    <title>KITOBI — 記飛</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400&family=DM+Sans:wght@400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/assets/index-DZdOrcGm.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DWw6KoOr.css">
+  <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
   <body>
-    <div id="root"></div>
+    <div id="app"></div>
   </body>
 </html>
