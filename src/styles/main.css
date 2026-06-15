@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  /* Shoriu Farbpalette */
+  --color-primary: #C4848A;
+  --color-primary-dark: #A86870;
+  --color-secondary: #8B6E5A;
+  --color-bg: #F9F7F4;
+  --color-surface: #FFFFFF;
+  --color-border: #E6E2DB;
+  --color-text: #1C1917;
+  --color-text-muted: #8A847C;
+  --color-success: #4A7C59;
+  --color-warning: #C49A3C;
+  --color-danger: #A84848;
+  --color-jp: #2C2C2C;
+
+  /* Typografie */
+  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-jp: 'Noto Serif JP', serif;
+
+  /* Border Radius */
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Schatten */
+  --shadow-sm: 0 1px 3px rgba(28, 25, 23, 0.06);
+  --shadow-md: 0 4px 12px rgba(28, 25, 23, 0.08);
+  --shadow-lg: 0 8px 32px rgba(28, 25, 23, 0.10);
+}
+
+/* Basis-Stile */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+/* Fokus-Stil (Accessibility) */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Japanischer Text */
+[lang="ja"] {
+  font-family: var(--font-jp);
+  color: var(--color-jp);
+}
