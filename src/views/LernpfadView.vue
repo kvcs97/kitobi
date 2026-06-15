@@ -35,6 +35,12 @@ onMounted(async () => {
     <div class="flex-1 flex flex-col min-w-0">
       <ScreenHeader title="記飛 · Lernpfad" :back="false" />
 
+      <!-- SRS Fehler -->
+      <div v-if="srs.error" class="mx-6 mt-4 p-3 bg-danger/10 border border-danger/30 rounded-lg flex items-center gap-2">
+        <span class="text-danger text-sm font-sans">⚠ {{ srs.error }}</span>
+        <button @click="srs.load()" class="ml-auto font-sans text-xs text-danger underline">Retry</button>
+      </div>
+
       <div class="flex-1 p-6 max-w-lg mx-auto w-full flex flex-col gap-5">
 
         <!-- Heute -->

@@ -7,12 +7,20 @@ import type { SRSItem, SRSRating } from '@/types/srs.types'
 export const useSRSStore = defineStore('srs', () => {
   const items = ref<SRSItem[]>([])
   const loading = ref(false)
+  const error = ref<string | null>(null)
 
   async function load() {
     loading.value = true
-    const { data } = await supabase.from('srs_items').select('*')
-    items.value = data ?? []
-    loading.value = false
+    error.value = null
+    try {
+      const { data, error: err } = await supabase.from('srs_items').select('*')
+      if (err) throw err
+      items.value = data ?? []
+    } catch (e) {
+      error.value = (e as Error).message ?? 'Fehler beim Laden der Lernkarten'
+    } finally {
+      loading.value = false
+    }
   }
 
   function getItemsDueToday(type?: SRSItem['type']) {
@@ -44,5 +52,5 @@ export const useSRSStore = defineStore('srs', () => {
       .eq('user_id', userId)
   }
 
-  return { items, loading, load, getItemsDueToday, addItem, rateItem }
+  return { items, loading, error, load, getItemsDueToday, addItem, rateItem }
 })
