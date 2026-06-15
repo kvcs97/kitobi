@@ -1,0 +1,14 @@
+# Normalize line endings to LF in the repo
+* text=auto eol=lf
+*.vue text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.sql text eol=lf
+
+# Binaries
+*.ico binary
+*.png binary
+*.svg binary
