@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { useAuthStore } from '@/stores/auth.store'
+import KLogo from '@/components/ui/KLogo.vue'
 
 const route = useRoute()
 const auth = useAuthStore()
@@ -19,9 +20,12 @@ function isActive(to: string) {
 
 <template>
   <aside class="hidden lg:flex flex-col w-56 shrink-0 h-screen sticky top-0 bg-surface border-r border-border">
-    <div class="flex items-center gap-2 px-5 h-16 border-b border-border">
-      <span lang="ja" class="font-jp text-2xl text-jp">記飛</span>
-      <span class="font-serif text-sm font-semibold tracking-[0.15em] text-text-muted">KITOBI</span>
+    <div class="flex items-center gap-3 px-4 h-16 border-b border-border">
+      <KLogo size="md" class="shrink-0" />
+      <div class="flex flex-col leading-tight">
+        <span class="font-serif text-sm font-semibold tracking-[0.12em] text-text">KITOBI</span>
+        <span lang="ja" class="font-jp text-xs text-text-muted">記飛</span>
+      </div>
     </div>
 
     <nav class="flex flex-col gap-1 p-3 flex-1">

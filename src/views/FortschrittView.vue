@@ -58,7 +58,7 @@ onMounted(async () => {
     <SideBar />
 
     <div class="flex-1 flex flex-col min-w-0">
-      <ScreenHeader title="歩 · Fortschritt" :back="false" />
+      <ScreenHeader title="Fortschritt" :back="false" :logo="true" />
 
       <!-- Loading -->
       <div v-if="srs.loading" class="flex-1 flex items-center justify-center">

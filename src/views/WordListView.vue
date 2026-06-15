@@ -39,7 +39,7 @@ onMounted(async () => {
     <SideBar />
 
     <div class="flex-1 flex flex-col min-w-0">
-      <ScreenHeader title="語 · Tagesvokabular" :back="false" />
+      <ScreenHeader title="Tagesvokabular" :back="false" :logo="true" />
 
       <div class="flex-1 p-6 max-w-lg mx-auto w-full flex flex-col gap-5">
 

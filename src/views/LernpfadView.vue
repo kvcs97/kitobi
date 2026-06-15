@@ -33,7 +33,7 @@ onMounted(async () => {
     <SideBar />
 
     <div class="flex-1 flex flex-col min-w-0">
-      <ScreenHeader title="記飛 · Lernpfad" :back="false" />
+      <ScreenHeader title="Lernpfad" :back="false" :logo="true" />
 
       <!-- SRS Fehler -->
       <div v-if="srs.error" class="mx-6 mt-4 p-3 bg-danger/10 border border-danger/30 rounded-lg flex items-center gap-2">
